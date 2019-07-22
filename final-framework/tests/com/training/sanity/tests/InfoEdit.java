@@ -60,11 +60,7 @@ public class InfoEdit {
 		editInfo.sendLastName("mehadi");
 		editInfo.sendEmail("manzoor@gmail.com");
 		editInfo.sendtelephone("9876543210");
-		editInfo.clickContinueBtn();
-		
-		
-			
-		
+		editInfo.clickContinueBtn();	
 	}
 	
 	
