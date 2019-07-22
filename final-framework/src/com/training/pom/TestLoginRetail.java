@@ -12,6 +12,9 @@ public class TestLoginRetail {
 		PageFactory.initElements(driver, this);
 	}
 	
+	@FindBy(xpath="//i[@class='fa fa-user-o']")
+	private WebElement loginOption;
+	
 	@FindBy(name="email")
 	private WebElement userName; 
 	
@@ -30,15 +33,18 @@ public class TestLoginRetail {
 	@FindBy(xpath="(//a[@class='btn btn-default tb_no_text'])[1]")
 	private WebElement viewIcon;
 	
+	public void clickLogin() {
+		this.loginOption.click();
+	}
 	
 	public void sendUserName(String userName) {
 		this.userName.clear();
-		this.userName.sendKeys("ambaarishs@gmail.com");
+		this.userName.sendKeys(userName);
 	}
 	
 	public void sendPassword(String password) {
 		this.password.clear(); 
-		this.password.sendKeys("Champions"); 
+		this.password.sendKeys(password); 
 	}
 	
 	public void clickLoginBtn() {

@@ -37,7 +37,7 @@ public class ChangePwd {
 	@BeforeMethod
 	public void setUp() throws Exception {
 		driver = DriverFactory.getDriver(DriverNames.CHROME);
-		PasswordChange passwordChange = new PasswordChange(driver); 
+		passwordChange = new PasswordChange(driver); 
 		baseUrl = properties.getProperty("baseURL");
 		screenShot = new ScreenShot(driver); 
 		driver.get(baseUrl);
@@ -51,8 +51,9 @@ public class ChangePwd {
 	
 	@Test
 	public void infoEdit() {
+		passwordChange.clickLogin();
 		passwordChange.sendUserName("ambaarishs@gmail.com");
-		passwordChange.sendUserName("Champions");
+		passwordChange.sendPassword("Champions");
 		passwordChange.clickLoginBtn(); 
 			screenShot.captureScreenShot("First");
 		passwordChange.clickPwdChange();

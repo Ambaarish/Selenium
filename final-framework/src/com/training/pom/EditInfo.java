@@ -14,6 +14,9 @@ public class EditInfo {
 		PageFactory.initElements(driver, this);
 	}
 	
+	@FindBy(xpath="//i[@class='fa fa-user-o']")
+	private WebElement loginOption;
+	
 	@FindBy(name="email")
 	private WebElement userName; 
 	
@@ -43,6 +46,10 @@ public class EditInfo {
 	
 	@FindBy(xpath="//input[@class='btn btn-primary']")
 	private WebElement continueBtn;
+	
+	public void clickLogin() {
+		this.loginOption.click();
+	}
 	
 	public void sendUserName(String userName) {
 		this.userName.clear();

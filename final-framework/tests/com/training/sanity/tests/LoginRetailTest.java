@@ -37,8 +37,8 @@ public class LoginRetailTest {
 	@BeforeMethod
 	public void setUp() throws Exception {
 		driver = DriverFactory.getDriver(DriverNames.CHROME);
-		LoginRetailTest loginRetailTest = new LoginRetailTest(); 
 		baseUrl = properties.getProperty("baseURL");
+		testLoginRetail = new TestLoginRetail(driver);
 		screenShot = new ScreenShot(driver); 
 		driver.get(baseUrl);
 	}
@@ -51,14 +51,17 @@ public class LoginRetailTest {
 	
 	@Test
 	public void retailLogin() {
+		
+		testLoginRetail.clickLogin();
 		testLoginRetail.sendUserName("ambaarishs@gmail.com");
-		testLoginRetail.sendUserName("Champions");
+		testLoginRetail.sendPassword("Champions");
 		testLoginRetail.clickLoginBtn(); 
 			screenShot.captureScreenShot("First");
 		testLoginRetail.clickProfileBtn();
 		testLoginRetail.clickOrderHistoryBtn();
 		testLoginRetail.clickViewIcon();
+		}
 	}
 	
 	
-}
+

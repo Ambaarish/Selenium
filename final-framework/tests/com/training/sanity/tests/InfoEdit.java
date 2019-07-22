@@ -37,7 +37,7 @@ public class InfoEdit {
 	@BeforeMethod
 	public void setUp() throws Exception {
 		driver = DriverFactory.getDriver(DriverNames.CHROME);
-		EditInfo editInfo = new EditInfo(driver); 
+		editInfo = new EditInfo(driver); 
 		baseUrl = properties.getProperty("baseURL");
 		screenShot = new ScreenShot(driver); 
 		driver.get(baseUrl);
@@ -51,8 +51,9 @@ public class InfoEdit {
 	
 	@Test
 	public void infoEdit() {
+		editInfo.clickLogin();
 		editInfo.sendUserName("ambaarishs@gmail.com");
-		editInfo.sendUserName("Champions");
+		editInfo.sendPassword("Champions");
 		editInfo.clickLoginBtn(); 
 			screenShot.captureScreenShot("First");
 		editInfo.clickAcctInfo();
