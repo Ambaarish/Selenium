@@ -5,15 +5,12 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
-
-import org.junit.After;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
-import org.junit.runners.Parameterized.Parameters;
 import org.openqa.selenium.WebDriver;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
 
 import com.training.bean.LoginBean;
 import com.training.generics.ScreenShot;
@@ -28,7 +25,7 @@ import com.training.utility.DriverNames;
  * @see program to show working of parameterization with excel 
  */
 
-@RunWith(Parameterized.class)
+//@RunWith(Parameterized.class)
 public class LoginExcelTest {
 	private WebDriver driver; 
 	private String baseUrl; 
@@ -84,7 +81,7 @@ public class LoginExcelTest {
 		
 	}
 
-	@Before
+	@BeforeMethod
 	public void setUp() throws Exception {
 		driver = DriverFactory.getDriver(DriverNames.CHROME);
 		loginPOM = new LoginPOM(driver); 
@@ -93,7 +90,7 @@ public class LoginExcelTest {
 		driver.get(baseUrl);
 	}
 
-	@After
+	@AfterMethod
 	public void tearDown() throws Exception {
 		Thread.sleep(5000);
 		driver.quit();
